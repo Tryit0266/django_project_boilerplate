@@ -1,0 +1,117 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="{% static 'css/style.css' %}" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body style="font-family: 'Roboto', sans-serif;">
+  {% include 'topbar.html'%}
+  <div class="d-lg-none d-none ">
+    <a href="" class="text-decoration-none">
+      <h1 class="m-0 display-5 font-weight-semi-bold"><span
+          class="text-primary font-weight-bold border ml-5 px-3 mr-1">E</span>Shopper</h1>
+    </a>
+  </div>
+
+  <section class="w-70 px-5 py-3 ">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <style>
+        .divider:after,
+        .divider:before {
+          content: "";
+          flex: 1;
+          height: 1px;
+          background: #eee;
+        }
+      </style>
+
+      <div class="col-md-8 col-lg-7 col-xl-6 d-none d-lg-block">
+      <center>  <img src="https://eshopper.com.ng/static/media/eshopper.303a42ec20b0d14bd854.jpeg" class="img-fluid" style="max-height: 450px;"
+          alt="Phone image"></center>
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <div class="d-block mb-4 btn btn-lg btn-primary disabled active rounded shadow">
+      <center><h4 class="m-0">Welcome to <span class="text-light">E</span>-shopper</h4></center>  
+       
+      </div>
+
+
+
+
+
+        {% load i18n %}
+        {% load account socialaccount %}
+
+        {% block content %}
+
+
+        {% get_providers as socialaccount_providers %}
+
+
+
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+          <div class="form-group">
+            {% csrf_token %}
+            <div class="form-outline mb-4 rounded">
+              {% render_field form.username type="username" class="form-control form-control-lg" placeholder="username" id="form1Example13" %}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-outline mb-4 rounded">
+              {% render_field form.email type="email" class="form-control form-control-lg" placeholder="email" id="form1Example13" %}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-outline mb-4 rounded">
+              {% render_field form.password1 type="password" class="form-control form-control-lg" placeholder="password" id="form1Example13" %}
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-outline mb-4 rounded">
+              {% render_field form.password2 type="password" class="form-control form-control-lg" placeholder="repeat password" id="form1Example13" %}
+            </div>
+          </div>
+         <input type="hidden" name="{{ redirect_field_name }}" value="/" />
+          
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-transparent btn-lg btn-block text-uppercase rounded shadow"
+            style="background-color:#3b71ca; color: white; font-weight: 500; font-size: 15px;">Sign
+            in</button>
+
+          <div class="divider d-flex align-items-center my-4">
+            <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
+          </div>
+
+          <a class="btn btn-primary btn-lg btn-block text-uppercase rounded shadow"
+            style="color: white; font-weight: 500; font-size: 15px;" href="{{ login_url }}"
+            role="button">
+            Already have an account?
+          </a>
+
+
+        </form>
+        {% endblock %}
+      </div>
+    </div>
+
+
+  </section>
+</body>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+
+</html>

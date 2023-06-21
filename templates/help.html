@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block head_title %}{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+      .spinner-wrapper{
+          background-color: #fff;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 9999;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          transition: all 0.2s;
+      }
+  
+      .spinner-border {
+          height: 60px;
+          width: 60px;
+      }
+  </style>
+  </head>
+<body>
+  <div class="spinner-wrapper">
+    <div class="spinner-border text-primary"></div>
+    </div>
+    
+    <script>
+        const spinnerWrapperE1 = document.querySelector('.spinner-wrapper');
+    
+        window.addEventListener('load', () => {
+            spinnerWrapperE1.style.opacity = '2';
+    
+            setTimeout(() => {
+                spinnerWrapperE1.style.display = 'none';
+            },1000);
+        });
+       
+    </script>
+  <!--Start Notification Messages -->
+
+
+  <!-- Notification Messages End -->
+  <!-- Topbar Start -->
+  <div class="container-fluid">
+    <div class="row bg-secondary py-2 px-xl-5">
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-dark" href="">FAQs</a>
+          <span class="text-muted px-2">|</span>
+          <a class="text-dark" href="">Help</a>
+          <span class="text-muted px-2">|</span>
+          <a class="text-dark" href="">Support</a>
+        </div>
+      </div>
+      <div class="col-lg-6 text-center text-lg-right">
+        <div class="d-inline-flex align-items-center">
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a class="text-dark px-2" href="">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a class="text-dark pl-2" href="">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="pt-2 mb-4 ">
+      <a href="" class="text-decoration-none">
+        <h1 class="m-0 display-5 font-weight-semi-bold"><span
+            class="text-primary font-weight-bold border  px-3 mr-1">E</span>Shopper</h1>
+      </a>
+    </div>
+    <h5 class="pl-3 pb-2" style="color:#6f6f6f;"><span class="bg-light font-weight-medium">
+        Billing address</span></h5>
+    <div class="d-flex flex-column align-items-center justify-content-center">
+      <form class="container" novalidate="" action="/echo" method="POST" id="myForm">
+        <div class="form-group">
+          <label class="form-control-label pt-2" for="inputSuccess1">Full name</label>
+          <input type="text" class="form-control" name="i1" id="inputSuccess1" required>
+          <div class="valid-feedback">Success! You've done it.</div>
+          <div class="invalid-feedback">No, you missed this one.</div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" for="inputSuccess2">Address</label>
+          <input type="text" class="form-control" name="i2" required id="inputSuccess2">
+          <div class="valid-feedback">Nice! You got this one!</div>
+          <div class="invalid-feedback">Sorry, you missed this one.</div>
+        </div>
+  <!--     <div class="form-group">
+          <label class="form-control-label" for="inputSuccess1">Address</label>
+          <input type="email" class="form-control" name="i1" id="inputSuccess1" required>
+          <div class="valid-feedback">Success! You've done it.</div>
+          <div class="invalid-feedback">No, you missed this one.</div>
+        </div>
+        <div class="row">
+          <div class="col-6 form-group">
+            <label class="form-control-label" for="inputSuccess1">City</label>
+            <input type="text" class="form-control" name="i1" id="inputSuccess1" required>
+            <div class="valid-feedback">Success! You've done it.</div>
+            <div class="invalid-feedback">No, you missed this one.</div>
+          </div>
+          <div class="col-6 form-group">
+            <label class="form-control-label" for="inputSuccess1">State</label>
+            <input type="text" class="form-control" name="i1" id="inputSuccess1" required>
+            <div class="valid-feedback">Success! You've done it.</div>
+            <div class="invalid-feedback">No, you missed this one.</div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-control-label" for="inputSuccess1">Phone number</label>
+          <input type="number" class="form-control" name="i1" id="in" required>
+          <div class="valid-feedback">Success! You've done it.</div>
+          <div class="invalid-feedback">No, you missed this one.</div>
+        </div> --> 
+      
+
+      <script>
+        $("#btnSubmit").click(function (event) {
+
+          // Fetch form to apply custom Bootstrap validation
+          var form = $("#myForm")
+
+          if (form[0].checkValidity() === false) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+
+          form.addClass('was-validated');
+          // Perform ajax submit here...
+
+        });
+
+      </script>
+
+      <script>
+        document.getElementById('myForm').addEventListener('change', function(){
+          document.getElementById('send').submit()
+        })
+      </script>
+    </div>
+    <hr>
+    <span class="float-left pl-2 text-muted d-block w-100" style="font-size: 18px;">Payment Method</span>
+    <div class="mb-4">
+      <div class="d-grid">
+        <div class="card">
+          <div class="card-header p-0">
+            <a href="{% url 'core:paypal' %}">
+              <button class="btn btn-light w-100 rounded shadow border-bottom-custom" type="button">
+                <span class="float-left pl-4 text-muted font-weight-bold" style="font-size: 18px;">Paypal</span>
+                <span class="float-right pr-4">
+                  <img src="https://i.imgur.com/7kQEsHU.png" width="30">
+                </span>
+              </button>
+            </a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+          <div class="card-header p-0" id="headingOne">
+            <a href="#bottom" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+              aria-controls="collapseOne">
+              <button class="btn btn-light w-100 rounded shadow border-bottom-custom active" type="button">
+                <span class="float-left pl-4 text-muted font-weight-bold" style="font-size: 18px;">credit card</span>
+                <div class="icons text-right">
+                  <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                  <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                  <img src="https://i.imgur.com/35tC99g.png" width="30">
+                  <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                </div>
+              </button>
+              
+            </a>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body payment-card-body">
+                
+                <span class="font-weight-normal card-text">Name on card</span>
+                <div class="input">
+
+                  <i class="fa fa-credit-card"></i>
+                  <input type="text" class="form-control" placeholder="John Doe">
+                  
+                </div> 
+
+
+                <span class="font-weight-normal card-text">Card Number</span>
+                <div class="input">
+
+                  <i class="fa fa-credit-card"></i>
+                  <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+                  
+                </div> 
+
+                <div class="row mt-3 mb-3">
+
+                  <div class="col-md-6">
+
+                    <span class="font-weight-normal card-text">Expiry Date</span>
+                    <div class="input">
+
+                      <i class="fa fa-calendar"></i>
+                      <input type="text" class="form-control" placeholder="MM/YY">
+                      
+                    </div> 
+                    
+                  </div>
+
+
+                  <div class="col-md-6">
+
+                    <span class="font-weight-normal card-text">CVC/CVV</span>
+                    <div class="input">
+
+                      <i class="fa fa-lock"></i>
+                      <input type="text" class="form-control" placeholder="000">
+                      
+                    </div> 
+                    
+                  </div>
+                  
+
+                </div>
+
+                <span class="text-muted certificate-text mb-3"><i class="fa fa-lock"></i> Your transaction is secured with ssl certificate</span>
+               <a href=""><button type="submit" class="btn btn-info btn-lg w-100 rounded shadow d-inline"><i class="fa fa-lock"></i> Pay</button></a> 
+              </div>
+            </div>
+          </form>
+          </div>
+        </div>
+       </div>
+      </div>
+    </div>
+    </div>
+  
+
+
+
+
+    <!-- Topbar End -->
+<span id="bottom"></span>
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Contact Javascript File -->
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'mail/contact.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</html>

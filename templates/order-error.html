@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Help</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Support</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="pt-5 text-center">
+            <a href="" class="text-decoration-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold"><span
+                        class="text-primary font-weight-bold border px-3 mr-1 mb-1 shadow">E</span></h1>
+                <h1 class="pt-2">Shopper</h1>
+            </a>
+
+            <h3 class="text-muted">Your purchase wasn't successful</h3>
+          <div class="">Dear User</div>
+            <div class="">Your payment for this order could not be completed. Please retry the payment. if money has
+                been deducted from your card, it would be refunded immediately.</div>
+            <hr>
+            <h5 class="text-muted">YOUR ORDER NUMBER IS #GS-2455</h5>
+        </div>
+        <hr>
+
+        <div class="row border-bottom pb-3">
+            {% for order_item in object.items.all %}
+            <div class="col-3">
+                <div class="bg-image hover-overlay hover-zoom ripple rounded pt-2 pl-3" data-mdb-ripple-color="light">
+                    <img src={{ order_item.item.photo }} class="" style="height: 140px; width: 45px;"
+                        alt="Blue Jeans Jacket" />
+                </div>
+            </div>
+            <div class="col-7">
+                <br>
+                <div><strong class="" style="padding-top:50px;">{{ order_item.item.title }}</strong></div>
+                <div class="text-danger"><strong>Unsuccessful</strong></div>
+              
+            </div>
+            <div class="col-2">
+                <br>
+              <div class=""><strong class="" style="padding-top:50px;">{{ order_item.quantity }}x</strong></div>
+            </div>
+            {% endfor %}
+        </div>
+        <center>
+        <a href=""><button class="btn btn-success rounded shadow mt-3">Continue shopping</button></a>
+        </center>
+
+    </div>
+    {% include 'footer.html' %}
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+<!-- Contact Javascript File -->
+<script src="{% static 'mail/jqBootstrapValidation.min.js' %}"></script>
+<script src="{% static 'mail/contact.js' %}"></script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</html>

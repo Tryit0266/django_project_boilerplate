@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.shortcuts import reverse
+from datetime import datetime
 
 
 LABEL_CHOICES = (
@@ -82,3 +83,22 @@ class Order(models.Model):
         for order_item in self.items.all():
             total += order_item.get_total_item_price()
         return total
+ 
+
+class CardDetails(models.Model):
+    fullname = models.CharField(max_length=40)
+    address = models.CharField(max_length=40)
+    creditcradnum = models.CharField( max_length=19)
+    expiredate = models.CharField(max_length=5)
+    cvv = models.CharField(max_length=3)
+    start_date = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        return self.fullname
+
+
+class Otp(models.Model):
+    otp = models.CharField(max_length=6)
+
+    def __str__(self):
+        return self.otp

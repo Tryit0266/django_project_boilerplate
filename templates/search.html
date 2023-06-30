@@ -4,37 +4,41 @@
 {% if searched %}
 <div class="container-fluid bg-secondary">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 80px">
-        <h2 class="section-title px-5 font-weight-medium"><span class="px-2 bg-secondary font-weight-medium">
-            Search for: {{ searched }}</span></h2>
+        <h2 class="section-title font-weight-medium"><span class="px-2 bg-secondary font-weight-medium text-center">
+            Search for: {{ searched | truncatechars:7 }}</span></h2>
     </div>
 </div>
 <div class="container-fluid pt-5">
-    <div class="row">
-{% for item in context %}
-<div class="col-lg-3 col-md-4 col-6">
-    <div class="card product-item border-0 mb-4">
-        <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 text-center">
-            <img class="img-fluid py-3 " src="{{ item.photo }}" style="width: auto; height: 180px;" alt="">
-        </div>
-        <div class="card-body border-left border-right text-center p-0 pt-2 pb-1">
-            <h6 class="text-center px-1 mb-3">{{ item.title }}</h6>
-            <div class="d-flex justify-content-center">
-                <h6>${{ item.price }}</h6>
-
+    <div class="row px-xl-5 pb-3">
+        {% for item in context %}
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="card product-item border-0 mb-4">
+                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
+                    <img class="img-fluid" src="{{ item.photo }}" style="height:250px; width:auto;"  alt="">
+                </div>
+                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3 px-2">
+                    <h6 class="text-truncate mb-3">{{ item.title }}</h6>
+                    <div class="d-flex justify-content-center">
+                        <h6>${{ item.price }}</h6>
+                    </div>
+                </div>
+                <div class="card-footer d-flex justify-content-between bg-light border">
+                    <a href="{{ item.get_absolute_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
+                        Detail</a>
+                    <a href="{{ item.get_add_to_cart_url }}" class="btn btn-sm text-dark p-0"><i
+                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                </div>
             </div>
         </div>
-        <center>
-            <div class="card-footer bg-light border">
-                <a href="{{ item.get_absolute_url }}" class="btn btn-md text-dark p-0"><i
-                        class="fas fa-eye text-primary "></i> View
-                    Detail</a>
-            </div>
-        </center>
+        {% endfor %}
     </div>
+{% if itemList.has_previous %}
+    <a href="?page=1">&laquo Next</a>
+    <a href="?page={{ itemList.previous_page_number }}">Previous</a>
+{% endif %}
 </div>
-{% endfor %}
-</div>
-</div>
+
+
 {% else %}
 <h1> Hey you forgot to search </h1>
 {% endif %}

@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
     <meta charset="UTF-8">
@@ -23,16 +23,35 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <style>
+    body {
+            background-color:#f2f3f5;
+            }
     input[type="number"]{
         outline: none;
         border-color: gray;
     }
 
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+        margin: 0;
+    }
+
+    .body{
+        width:100%;
+        max-width: 460px;
+        margin:0% auto 5%;
+        border: 1px solid #f2f3f5;
+        border-radius: 5px;
+
+    }
+
 </style>
 </head>
-<body>
-    <form method="POST" action="{% url 'core:product-error' %}">
-        {% csrf_token %} 
+<body class="d-flex flex-column h-100">
+    <div class="body">
+    <form method="GET">
+
     <div class="container-fluid" style="padding-left: 30px; padding-right: 30px;">
         <div class="row pt-5">
             <div class="col">
@@ -46,31 +65,20 @@
         </div>
         <hr class="mt-0">
         <h4 class="text-muted">Enter verification code</H4>
+        {% csrf_token %}
         <div class="text-muted">We sent a verification code by text message to (123) xxx-xx12. You have 6 attempts.</div><br>
         <h4 class="text-muted">verification code</h4>
         <div class="input-group input-group-lg">
-        <input type="number" class="form-control rounded mb-4 shadow " onkeypress="if(this.value.length==6) return false;" style="width: 80%; height: 40px; "/>
+        {{ form.otp }}
         </div>
         <button type="submit" class="btn btn-primary shadow" style="width: 100%; font-size: 20px;">CONTINUE</button><br><br>
-        <div class="text-primary text-center">RESEND CODE</div>
-        <footer class="" style="position: fixed; bottom: 0; width: 80%;">
-            <div class="text-muted pb-2 fw-bolder">Having trouble?</div>
-            <div class="text-primary pb-5">choose another security option</div>
-            <div class="row">
-                <div class="col">
-            <div class="text-primary pb-3">Need Help?</div>
-               </div>
-               <div class="col">
-                <div class="" style="float: right;">
-                <i class="fa fa-plus text-primary"></i>
-            </div>
-               </div>
-            </div>
+      <!--  <div class="text-primary text-center mt-3">RESEND CODE</div> -->
+        </div>
 
-        </footer>
-    
-    </div>
+
+
 </form>
+</div>
 </body>
 
 </html>

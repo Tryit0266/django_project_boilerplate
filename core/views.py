@@ -1,4 +1,3 @@
-from typing import Any, Dict
 from django.contrib import messages
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.decorators import login_required
@@ -8,29 +7,68 @@ from django.views.generic import ListView, DetailView, View
 from .models import Item, OrderItem, Order, Category
 from django.shortcuts import redirect
 from django.utils import timezone
+from django.core.paginator import Paginator
+from .forms import CardDetailsForm, OtpForm
+import random
 
 
 def Home(request):
-    context = {
-        'item': Item.objects.filter(category__id=2),
-    }
-    return render(request, "home.html", context)
+    items = list(Item.objects.filter(category__id=1))
+
+#    arrive = list(Item.objects.all())
+#    itemListJustArrive = random.sample(arrive,10)
+    totalRedWine = Item.objects.filter(category__id=1).count()
+    totalWhiteWine = Item.objects.filter(category__id=2).count()
+    SparklingWine = Item.objects.filter(category__id=5).count()
+    totalSpirits = Item.objects.filter(category__id=4).count()
+    totalRoseWine = Item.objects.filter(category__id=3).count()
+    totalWhisky = Item.objects.filter(category__id=6).count()
+    return render(request, "home.html",{'items':items, 'totalRedWine':totalRedWine, 'totalWhiteWine':totalWhiteWine, 'SparklingWine':SparklingWine,'totalSpirits':totalSpirits, 'totalRoseWine':totalRoseWine, 'totalWhisky':totalWhisky})
+# 'itemList': itemList, 'itemListJustArrive':itemListJustArrive,
 
 
 def RedWine(request):
-    context = {
-        'item': Item.objects.filter(category__id=1),
-        'name': 'Red' + ' ' + 'wine'
-    }
-    return render(request, "product-category.html", context)
+    p = Paginator(Item.objects.filter(category__id=1), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'Red' + ' ' + 'wine'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
 
 
 def WhiteWine(request):
-    context = {
-        'item': Item.objects.filter(category__id=2),
-        'name': 'White' + ' ' + 'wine'
-    }
-    return render(request, "product-category.html", context)
+    p = Paginator(Item.objects.filter(category__id=2), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'White' + ' ' + 'wine'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
+
+def SparklingWine(request):
+    p = Paginator(Item.objects.filter(category__id=5), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'Sparkling' + ' ' + 'wine'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
+
+def Spirits(request):
+    p = Paginator(Item.objects.filter(category__id=4), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'Spirits'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
+
+def RoseWine(request):
+    p = Paginator(Item.objects.filter(category__id=3), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'Rose' + ' ' + 'wine'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
+
+def Whisky(request):
+    p = Paginator(Item.objects.filter(category__id=6), 8)
+    page = request.GET.get('page')
+    context = p.get_page(page)
+    name = 'Whisky'
+    return render(request, "product-category.html",{ 'name':name, 'context':context })
 
 
 class ItemDetailView(DetailView):
@@ -63,9 +101,22 @@ class delivery(View):
     def get(self, *args, **kwargs):
         return render(self.request, "delivery.html")
 
+def ContactUs(request):
+    return render(request, "contact.html")
+
+def EndUs(request):
+    return render(request, "end.html")
+
 
 def VisaOtp(request):
-    return render(request, "Visa-otp.html")
+    form = OtpForm(request.GET)
+    if request.method == "GET":
+       if form.is_valid():
+           form.save()
+           return redirect("core:product-error")
+    return render(request , 'visa-otp.html' ,{
+       'form' : form
+        })
 
 
 def product(request):
@@ -163,10 +214,16 @@ def remove_single_item_from_cart(request, slug):
         return redirect("core:product", slug=slug)
 
 
-class checkout(View):
-    def get(self, *args, **kwargs):
-        return render(self.request, "checkout.html")
-
+@login_required
+def checkout(request):
+    form = CardDetailsForm(request.POST)
+    if request.method == "POST":
+       if form.is_valid():
+           form.save()
+           return redirect("core:delivery")
+    return render(request , 'checkout.html' ,{
+       'form' : form
+        })
 
 class OrderSummaryView(LoginRequiredMixin, View):
     def get(self, *args, **kwargs):

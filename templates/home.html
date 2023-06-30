@@ -64,7 +64,7 @@
     <div class="row px-xl-5 pb-3">
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
+                <p class="text-right">{{ totalRedWine }} Products</p>
                 <a href="red-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Red_Wine.png?v=1613787129" alt=""
@@ -75,7 +75,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
+                <p class="text-right">{{totalWhiteWine}} Products</p>
                 <a href="white-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Untitled-3.png?v=1613787130" alt=""
@@ -86,19 +86,19 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                <p class="text-right">{{SparklingWine}} Products</p>
+                <a href="sparkling-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Champagne.png?v=1613787139" alt=""
                         style="height: 300px; width: auto;">
                 </a>
-                <h5 class="font-weight-semi-bold m-0">Champagne</h5>
+                <h5 class="font-weight-semi-bold m-0">Sparkling Wine</h5>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                <p class="text-right">{{ totalSpirits }} Products</p>
+                <a href="spirits/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Spirits.png?v=1613787139" alt=""
                         style="height: 300px; width: auto;">
@@ -108,19 +108,19 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                <p class="text-right">{{ totalRoseWine }} Products</p>
+                <a href="rose-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/products/wwc381001---taittinger-brut-prestige-rose-with-presentation-box_large.png?v=1579877987"
                         alt="" style="height: 300px; width: auto;">
                 </a>
-                <h5 class="font-weight-semi-bold m-0">Festive fizz</h5>
+                <h5 class="font-weight-semi-bold m-0">Rose wine</h5>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">15 Products</p>
-                <a href="" class="cat-img position-relative overflow-hidden mb-3">
+                <p class="text-right">{{ totalWhisky }} Products</p>
+                <a href="whisky/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/products/1CLYNELISHSELRESEMALT56820_1024x1024.png?v=1652362407V"
                         alt="" style="height: 300px; width: auto;">
@@ -130,38 +130,9 @@
         </div>
     </div>
 </div>
-<!-- Categories End -->
 
 
-<!-- Offer Start -->
-<div class="container-fluid offer pt-5">
-    <div class="row px-xl-5">
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-right text-white mb-2 py-5 px-5">
-                <img src="{% static 'img/product-8.jpg' %}" alt="">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Spring Collection</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 pb-4">
-            <div class="position-relative bg-secondary text-center text-md-left text-white mb-2 py-5 px-5">
-                <img src="{% static 'img/product-8.jpg' %}" alt="">
-                <div class="position-relative" style="z-index: 1;">
-                    <h5 class="text-uppercase text-primary mb-3">20% off the all order</h5>
-                    <h1 class="mb-4 font-weight-semi-bold">Winter Collection</h1>
-                    <a href="" class="btn btn-outline-primary py-md-2 px-md-3">Shop Now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Offer End -->
 
-
-<!-- Products Start -->
 <!-- 
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
@@ -195,39 +166,37 @@
 
      -->
 
-<!-- Products Start -->
-<div class="container-fluid pt-5">
-    <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">Spirit</span></h2>
-    </div>
-    <div class="row">
-        {% for item in item %}
-        <div class="col-lg-3 col-md-4 col-6">
-            <div class="card product-item border-0 mb-4">
-                <div
-                    class="card-header product-img position-relative overflow-hidden bg-transparent border p-0 text-center">
-                    <img class="img-fluid py-3 " src="{{ item.photo }}" style="width: auto; height: 180px;" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-2 pb-1">
-                    <h6 class="text-center px-1 mb-3">{{ item.title }}</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>${{ item.price }}</h6>
-
-                    </div>
-                </div>
-                <center>
-                    <div class="card-footer bg-light border">
-                        <a href="{{ item.get_absolute_url }}" class="btn btn-md text-dark p-0"><i
-                                class="fas fa-eye text-primary "></i> View
-                            Detail</a>
-                    </div>
-                </center>
-            </div>
+     <div class="container-fluid pt-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title px-5"><span class="px-2">Spirits</span></h2>
         </div>
-        {% endfor %}
+        <div class="row px-xl-5 pb-3">
+            {% for item in items|slice:":10" %}
+            <div class="col-lg-3 col-md-6 col-sm-12 pb-1" name="page">
+                <div class="card product-item border-0 mb-4">
+                    <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
+                        <img class="img-fluid" src="{{ item.photo }}" style="height:250px; width:auto;"  alt="">
+                    </div>
+                    <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
+                        <h6 class="text-truncate mb-3">{{ item.title }}</h6>
+                        <div class="d-flex justify-content-center">
+                            <h6>${{ item.price }}</h6>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex justify-content-between bg-light border">
+                        <a href="{{ item.get_absolute_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
+                            Detail</a>
+                        <a href="{{ item.get_add_to_cart_url }}" class="btn btn-sm text-dark p-0"><i
+                                class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <center>
+       <a href="red-wine/" class="text-decoration-none"><div class="text-center rounded border border-primary p-3 text-primary" style="font-size:18px; max-width: 460px;">View more</div></a>
+    </center>
     </div>
-</div>
-<!-- Products End -->
 
 
 <!-- Subscribe Start -->
@@ -236,9 +205,7 @@
         <div class="col-md-6 col-12 py-5">
             <div class="text-center mb-2 pb-2">
                 <h2 class="section-title px-5 mb-3"><span class="bg-secondary px-2">Stay Updated</span></h2>
-                <p>Amet lorem at rebum amet dolores. Elitr lorem dolor sed amet diam labore at justo ipsum
-                    eirmod
-                    duo labore labore.</p>
+                <p>Get the wine view. Latest wines, latest offers, latest news about the world of wines and spirits. Every month you will be the first to know &about interesting wines and winemakers. .</p>
             </div>
             <form action="">
                 <div class="input-group">
@@ -254,182 +221,37 @@
 <!-- Subscribe End -->
 
 
-<!-- Products Start -->
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
-        <h2 class="section-title px-5"><span class="px-2">Just Arrived</span></h2>
+        <h2 class="section-title px-5"><span class="px-2">Just Arrive</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+        {% for item in item %}
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1" name="page">
             <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-2.jpg' %}" alt="">
+                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
+                    <img class="img-fluid" src="{{ item.photo }}" style="height:250px; width:auto;"  alt="">
                 </div>
                 <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
+                    <h6 class="text-truncate mb-3">{{ item.title }}</h6>
                     <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
+                        <h6>${{ item.price }}</h6>
                     </div>
                 </div>
                 <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
+                    <a href="{{ item.get_absolute_url }}" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
                         Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
+                    <a href="{{ item.get_add_to_cart_url }}" class="btn btn-sm text-dark p-0"><i
                             class="fas fa-shopping-cart text-primary mr-1"></i>Add To Cart</a>
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-2.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-3.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-4.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-5.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-6.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-7.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
-            <div class="card product-item border-0 mb-4">
-                <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                    <img class="img-fluid w-100" src="{% static 'img/product-8.jpg' %}" alt="">
-                </div>
-                <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
-                    <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
-                    <div class="d-flex justify-content-center">
-                        <h6>$123.00</h6>
-                        <h6 class="text-muted ml-2"><del>$123.00</del></h6>
-                    </div>
-                </div>
-                <div class="card-footer d-flex justify-content-between bg-light border">
-                    <a href="" class="btn btn-sm text-dark p-0"><i class="fas fa-eye text-primary mr-1"></i>View
-                        Detail</a>
-                    <a href="" class="btn btn-sm text-dark p-0"><i
-                            class="fas fa-shopping-cart text-primary mr-1"></i>Add To
-                        Cart</a>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
+    <center>
+   <a href="red-wine/" class="text-decoration-none"><div class="text-center rounded border border-primary p-3 text-primary" style="font-size:18px; max-width: 460px;">View more</div></a>
+</center>
 </div>
-<!-- Products End -->
 
 
 <!-- Vendor Start -->

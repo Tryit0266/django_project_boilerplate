@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block head_title %}Eshopper | Search{% endblock %}
 {% block content %}
 {% if searched %}
 <div class="container-fluid bg-secondary">
@@ -10,7 +10,7 @@
 </div>
 <div class="container-fluid pt-5">
     <div class="row px-xl-5 pb-3">
-        {% for item in context %}
+        {% for item in context|slice:":20" %}
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
@@ -40,6 +40,11 @@
 
 
 {% else %}
-<h1> Hey you forgot to search </h1>
+<div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 80px">
+        <h2 class="section-title font-weight-medium"><span class="px-2 bg-secondary font-weight-medium text-center">
+        Search bar can't be empty</span></h2>
+    </div>
+</div>
 {% endif %}
 {% endblock %}

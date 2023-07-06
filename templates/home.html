@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block head_title %}Eshopper - Home{% endblock %}
 {% block content %}
 {% block scroll %}
 <div id="header-carousel" class="carousel slide" data-ride="carousel">
@@ -64,7 +65,7 @@
     <div class="row px-xl-5 pb-3">
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{ totalRedWine }} Products</p>
+                <p class="text-right">1{{ totalRedWine }}0 Products</p>
                 <a href="red-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Red_Wine.png?v=1613787129" alt=""
@@ -75,7 +76,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{totalWhiteWine}} Products</p>
+                <p class="text-right">11{{totalWhiteWine}} Products</p>
                 <a href="white-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Untitled-3.png?v=1613787130" alt=""
@@ -86,7 +87,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{SparklingWine}} Products</p>
+                <p class="text-right">{{SparklingWine}}8 Products</p>
                 <a href="sparkling-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Champagne.png?v=1613787139" alt=""
@@ -97,7 +98,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{ totalSpirits }} Products</p>
+                <p class="text-right">24{{ totalSpirits }} Products</p>
                 <a href="spirits/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/files/Spirits.png?v=1613787139" alt=""
@@ -108,7 +109,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{ totalRoseWine }} Products</p>
+                <p class="text-right">6{{ totalRoseWine }} Products</p>
                 <a href="rose-wine/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/products/wwc381001---taittinger-brut-prestige-rose-with-presentation-box_large.png?v=1579877987"
@@ -119,7 +120,7 @@
         </div>
         <div class="col-lg-4 col-md-6 pb-1">
             <div class="cat-item d-flex flex-column border mb-4" style="padding: 30px;">
-                <p class="text-right">{{ totalWhisky }} Products</p>
+                <p class="text-right">22{{ totalWhisky }} Products</p>
                 <a href="whisky/" class="cat-img position-relative overflow-hidden mb-3">
                     <img class="img-fluid mx-auto d-block"
                         src="https://cdn.shopify.com/s/files/1/0263/8394/1731/products/1CLYNELISHSELRESEMALT56820_1024x1024.png?v=1652362407V"
@@ -133,7 +134,7 @@
 
 
 
-<!-- 
+<!--
 <div class="container-fluid pt-5">
     <div class="text-center mb-4">
         <h2 class="section-title px-5"><span class="px-2">Spiriit</span></h2>
@@ -168,10 +169,10 @@
 
      <div class="container-fluid pt-5">
         <div class="text-center mb-4">
-            <h2 class="section-title px-5"><span class="px-2">Spirits</span></h2>
+            <h2 class="section-title px-5"><span class="px-2">Red wine's</span></h2>
         </div>
         <div class="row px-xl-5 pb-3">
-            {% for item in items|slice:":10" %}
+            {% for item in itemList|slice:":12" %}
             <div class="col-lg-3 col-md-6 col-sm-12 pb-1" name="page">
                 <div class="card product-item border-0 mb-4">
                     <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
@@ -226,7 +227,7 @@
         <h2 class="section-title px-5"><span class="px-2">Just Arrive</span></h2>
     </div>
     <div class="row px-xl-5 pb-3">
-        {% for item in item %}
+        {% for item in itemListJustArrive %}
         <div class="col-lg-3 col-md-6 col-sm-12 pb-1" name="page">
             <div class="card product-item border-0 mb-4">
                 <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-3 text-center">
@@ -248,9 +249,7 @@
         </div>
         {% endfor %}
     </div>
-    <center>
-   <a href="red-wine/" class="text-decoration-none"><div class="text-center rounded border border-primary p-3 text-primary" style="font-size:18px; max-width: 460px;">View more</div></a>
-</center>
+
 </div>
 
 

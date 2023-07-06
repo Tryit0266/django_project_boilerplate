@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Eshopper - Checkout</title>
   <!DOCTYPE html>
   <html lang="en">
 
@@ -13,7 +13,6 @@
     {% load static %}
     {% load widget_tweaks %}
     <meta charset="utf-8">
-    <title>{% block head_title %}{% endblock %}</title>
     {% block extra_head %}
     {% endblock %}
 
@@ -22,7 +21,8 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+    <link href="{% static 'img/favicon.png' %}" rel="icon">
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -48,7 +48,7 @@
        body{
             background-color:#f2f3f5;
             }
-            
+
       .spinner-wrapper {
         background-color: #fff;
         position: fixed;
@@ -89,12 +89,7 @@
         border-radius: 5px;
 
     }
-   @media screen and (max-width: 460px){
-      .body{
-        display:none;
-      }
 
-   }
     </style>
   </head>
 
@@ -252,7 +247,7 @@
                                 class="fa fa-calendar text-muted"></i> Expiry Date</span>
                             <div class="input my-2">
 
-                                
+
                                  {{form.expiredate}}
                             </div>
 
@@ -265,7 +260,7 @@
                               CVV</span>
                             <div class="input text-muted my-2">
                               {% csrf_token %}
-                         
+
                           {{form.cvv}}
 
 

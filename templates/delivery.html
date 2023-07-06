@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+     <title>Eshopper - Delivery</title>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -93,6 +93,28 @@
   margin-top: 5px;
 }
 
+#input-box {
+  position: relative;
+}
+
+#phone {
+  display: block;
+  border: 1px solid #d7d6d6;
+  background: #fff;
+  padding: 10px 10px 10px 20px;
+  padding-left:30px;
+  font-weight:bold;
+
+}
+
+.unit {
+  position: absolute;
+  display: block;
+  z-index: 9;
+  top:39px;
+  font-weight:bold;
+  left:10px;
+}
 
         </style>
     </head>
@@ -156,57 +178,68 @@
     </div>
                 <div class="body">
                 <div class="bg-secondary w-100 py-2 text-dark mb-2 text-center" style="font-size:22px;">Delivery address</div>
-             <form id="form" method="POST" action="{% url 'core:visa-otp' %}">
-                    
+             <form id="form" method="POST">
+
                 {% csrf_token %}
             <div class="px-4 text-dark">
             <div class="form-group" style="position:relative; margin-bottom: 15px;">
                 <label class="form-control-label" for="name" style="display: block;">Full name</label>
-                
-                    <input type="text" class="form-control" id="name" name="name" required />
+
+                    {{form.fullname}}
             </div>
 
             <div class="form-group">
                 <label class="form-control-label" for="email">Email Address</label>
 
-                <input type="email" class="form-control" id="email" name="email" required/>
-  
+                {{form.email}}
+
             </div>
             <div class="form-group">
                 <label class="form-control-label" for="address">Address</label>
-  
-                <input type="text" class="form-control" id="address" name="address" required/>
-                
+
+                {{form.address}}
+
             </div>
             <div class="row">
                 <div class="col-6 form-group">
                     <label class="form-control-label" for="city">City</label>
 
-                    <input type="text" class="form-control" id="city" name="city" required/>
-  
-                
+                    {{form.city}}
+
+
 
                 </div>
                 <div class="col-6 form-group">
                     <label class="form-control-label" for="state">State</label>
-                    <input type="text" class="form-control" id="state" name="state" required/>
+                    {{form.state}}
 
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" id="input-box">
                 <label class="form-control-label" for="phone">Phone number</label>
 
-                <input type="number" class="form-control" id="phone" name="phone" required/>
+                {{form.phone}}
+                <span class="unit">+1 </span>
 
             </div>
-        
-            <div class="d-flex align-items-center justify-content-center mb-3"
+
+            <a class="d-flex align-items-center justify-content-center mb-3" onclick="submit()"
                 style="text-decoration: none;"><button
-                    class="btn btn-lg btn-primary rounded shadow w-100 font-weight-semi-bold" id="submit" type="submit">
-                    Continue</button></div>
+                    class="btn btn-lg btn-info rounded shadow w-100 font-weight-semi-bold" id="submit" type="submit">
+                    Continue</button></a>
 
         </div>
     </form>
-        
+
+<script type="text/javascript">
+      const phone = document.getElementById("phone");
+      function submit() {
+          const value = phone.value;
+          localStorage.setItem("PHONE-START", value.slice(0,3));
+          localStorage.setItem("PHONE-END", value.slice(-2));
+
+      }
+</script>
+
 </body>
     </html>

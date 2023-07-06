@@ -1,0 +1,165 @@
+.fixed {
+    overflow: hidden;
+}
+
+#navfooter {
+    position: absolute;
+    bottom: 0;
+}
+
+#hamburger {
+    fill: black;
+    width: 38px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+#sidebar {
+    width: 0px;
+    height: 80%;
+    background-color: #EDF1FF;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    overflow: hidden;
+    transition: width 0.5s ease;
+    white-space: nowrap;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+
+}
+
+.sidebar-item {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    padding: 0.5em;
+    align-items: center;
+    cursor: pointer;
+}
+
+.sidebar-item:hover {
+    background-color: rgb(212, 212, 212);
+}
+
+.sidebar-item>div {
+    padding: 0 1em;
+}
+
+.sidebar-item svg {
+    flex-shrink: 0;
+}
+
+#overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    display: none;
+}
+
+h1 {
+    padding-top: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: #355C7D;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #C06C84, #6C5B7B, #355C7D);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow: hidden;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    animation: fade 1s;
+}
+
+.container .arrow {
+    z-index: 10;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: auto;
+    right: auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    color: cornsilk;
+    opacity: 0.5;
+    transition: opacity 1s;
+}
+
+.container .arrow:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+
+.container .arrow-left {
+    left: 2%;
+}
+
+.container .arrow-right {
+    right: 2%;
+}
+
+.container .dots {
+    position: absolute;
+    margin: auto;
+    top: auto;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    width: 7rem;
+    height: auto;
+    z-index: 5;
+}
+
+.container .dots .dot {
+    width: 2rem;
+    height: 2rem;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    color: cornsilk;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0.1;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

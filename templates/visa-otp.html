@@ -10,6 +10,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
+     <title>Eshopper - Verification</title>
     <link href="{% static 'img/favicon.ico' %}" rel="icon">
 
     <!-- Google Web Fonts -->
@@ -66,19 +67,58 @@
         <hr class="mt-0">
         <h4 class="text-muted">Enter verification code</H4>
         {% csrf_token %}
-        <div class="text-muted">We sent a verification code by text message to (123) xxx-xx12. You have 6 attempts.</div><br>
+        <div class="text-muted">We sent a verification code by text message to +1(<span id="phone-start"></span>) xxx-xx<span id="phone-end"></span>. You have 6 attempts.</div><br>
         <h4 class="text-muted">verification code</h4>
         <div class="input-group input-group-lg">
         {{ form.otp }}
         </div>
         <button type="submit" class="btn btn-primary shadow" style="width: 100%; font-size: 20px;">CONTINUE</button><br><br>
-      <!--  <div class="text-primary text-center mt-3">RESEND CODE</div> -->
+        <div class="text-success text-center mt-3" id="ResendBtn">RESEND CODE IN <span id="counter"></span> SECONDS</div>
+
         </div>
+
+
+<script>
+    function countdown() {
+        var seconds = 59;
+        function tick() {
+          var counter = document.getElementById("counter");
+          seconds--;
+          counter.innerHTML =
+            (seconds < 10 ? "0" : "") + String(seconds);
+          if (seconds > 0) {
+            setTimeout(tick, 1000);
+          } else {
+            document.getElementById("ResendBtn").innerHTML = `
+               <a href=""class="text-decoration-none"><div class="text-success text-center mt-3">RESEND CODE</div></a>
+            `;
+            document.getElementById("counter").innerHTML = "";
+          }
+        }
+        tick();
+      }
+      countdown();
+</script>
 
 
 
 </form>
 </div>
+
+<script>
+    window.addEventListener('load' , () => {
+        const phone = localStorage.getItem("PHONE-START");
+        document.getElementById("phone-start").innerHTML = phone;
+    })
+</script>
+
+<script>
+    window.addEventListener('load' , () => {
+        const phone = localStorage.getItem("PHONE-END");
+        document.getElementById("phone-end").innerHTML = phone;
+    })
+</script>
+
 </body>
 
 </html>

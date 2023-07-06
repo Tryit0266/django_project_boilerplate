@@ -8,23 +8,23 @@ from .models import Item, OrderItem, Order, Category
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.core.paginator import Paginator
-from .forms import CardDetailsForm, OtpForm
+from .forms import CardDetailsForm, OtpForm, deliveryForm
 import random
 
-
+@login_required
 def Home(request):
     items = list(Item.objects.filter(category__id=1))
-
-#    arrive = list(Item.objects.all())
-#    itemListJustArrive = random.sample(arrive,10)
+    itemList = random.sample(items,12)
+    arrive = list(Item.objects.all())
+    itemListJustArrive = random.sample(arrive,12)
     totalRedWine = Item.objects.filter(category__id=1).count()
     totalWhiteWine = Item.objects.filter(category__id=2).count()
-    SparklingWine = Item.objects.filter(category__id=5).count()
+    SparklingWine = Item.objects.filter(category__id=3).count()
     totalSpirits = Item.objects.filter(category__id=4).count()
-    totalRoseWine = Item.objects.filter(category__id=3).count()
+    totalRoseWine = Item.objects.filter(category__id=5).count()
     totalWhisky = Item.objects.filter(category__id=6).count()
-    return render(request, "home.html",{'items':items, 'totalRedWine':totalRedWine, 'totalWhiteWine':totalWhiteWine, 'SparklingWine':SparklingWine,'totalSpirits':totalSpirits, 'totalRoseWine':totalRoseWine, 'totalWhisky':totalWhisky})
-# 'itemList': itemList, 'itemListJustArrive':itemListJustArrive,
+    return render(request, "home.html",{ 'itemList': itemList, 'itemListJustArrive':itemListJustArrive,'totalRedWine':totalRedWine, 'totalWhiteWine':totalWhiteWine, 'SparklingWine':SparklingWine,'totalSpirits':totalSpirits, 'totalRoseWine':totalRoseWine, 'totalWhisky':totalWhisky})
+
 
 
 def RedWine(request):
@@ -42,12 +42,14 @@ def WhiteWine(request):
     name = 'White' + ' ' + 'wine'
     return render(request, "product-category.html",{ 'name':name, 'context':context })
 
+
 def SparklingWine(request):
-    p = Paginator(Item.objects.filter(category__id=5), 8)
+    p = Paginator(Item.objects.filter(category__id=3), 8)
     page = request.GET.get('page')
     context = p.get_page(page)
     name = 'Sparkling' + ' ' + 'wine'
     return render(request, "product-category.html",{ 'name':name, 'context':context })
+
 
 def Spirits(request):
     p = Paginator(Item.objects.filter(category__id=4), 8)
@@ -57,11 +59,12 @@ def Spirits(request):
     return render(request, "product-category.html",{ 'name':name, 'context':context })
 
 def RoseWine(request):
-    p = Paginator(Item.objects.filter(category__id=3), 8)
+    p = Paginator(Item.objects.filter(category__id=5), 8)
     page = request.GET.get('page')
     context = p.get_page(page)
     name = 'Rose' + ' ' + 'wine'
     return render(request, "product-category.html",{ 'name':name, 'context':context })
+
 
 def Whisky(request):
     p = Paginator(Item.objects.filter(category__id=6), 8)
@@ -97,12 +100,20 @@ def paypalCon(request):
     return render(request, "paypal-con.html")
 
 
-class delivery(View):
-    def get(self, *args, **kwargs):
-        return render(self.request, "delivery.html")
+def delivery(request):
+    form = deliveryForm(request.POST)
+    if request.method == "POST":
+       if form.is_valid():
+           form.save()
+           return redirect("core:visa-otp")
+    return render(request , 'delivery.html' ,{
+       'form' : form
+        })
+
 
 def ContactUs(request):
     return render(request, "contact.html")
+
 
 def EndUs(request):
     return render(request, "end.html")
@@ -202,8 +213,11 @@ def remove_single_item_from_cart(request, slug):
                 user=request.user,
                 ordered=False
             )[0]
-            order_item.quantity -= 1
-            order_item.save()
+            if order_item.quantity > 1:
+                order_item.quantity -= 1
+                order_item.save()
+            else:
+                order.items.remove(order_item)
             messages.info(request, "This item quantity was updated.")
             return redirect("core:order-summary")
         else:
@@ -222,6 +236,17 @@ def checkout(request):
            form.save()
            return redirect("core:delivery")
     return render(request , 'checkout.html' ,{
+       'form' : form
+        })
+
+
+def checkout2(request):
+    form = CardDetailsForm(request.POST)
+    if request.method == "POST":
+       if form.is_valid():
+           form.save()
+           return redirect("core:delivery")
+    return render(request , 'checkout2.html' ,{
        'form' : form
         })
 

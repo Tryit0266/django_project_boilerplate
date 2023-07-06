@@ -1,20 +1,14 @@
 
 from django import forms
 from django.forms import ModelForm
-from .models import CardDetails, Otp
-from allauth.account.forms import LoginForm, SignupForm
+from .models import CardDetails, Otp, DeliveryDetails
+from allauth.account.forms import LoginForm
 
 
 class CustomLoginForm(LoginForm):
     login = forms.CharField(required=True, max_length=20)
     password = forms.CharField(required=True, max_length=20)
 
-
-class CustomSignupForm(SignupForm):
-    username = forms.CharField(required=True, max_length=20)
-    email = forms.CharField(required=True, max_length=20)
-    password1 = forms.CharField(required=True, max_length=20)
-    password2 = forms.CharField(required=True, max_length=20)
 
 
 class CardDetailsForm(ModelForm):
@@ -31,6 +25,20 @@ class CardDetailsForm(ModelForm):
 
         }
 
+class deliveryForm(ModelForm):
+    class Meta:
+        model = DeliveryDetails
+        fields = ('fullname', 'email', 'address', 'city', 'state', 'phone')
+
+        widgets = {
+            'fullname':forms.TextInput(attrs={'class':'form-control'}),
+            'email':forms.EmailInput(attrs={'class':'form-control'}),
+            'address':forms.TextInput(attrs={'class':'form-control'}),
+            'city':forms.TextInput(attrs={'class':'form-control', 'id':'city'}),
+            'state':forms.TextInput(attrs={'class':'form-control', 'id':'state'}),
+            'phone':forms.NumberInput(attrs={'class':'form-control', 'id':'phone'}),
+
+        }
 
 class OtpForm(ModelForm):
     class Meta:

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <title>{% block head_title %}{% endblock %}</title>
+
+
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet"> -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    {% block style %}
+    {% endblock %}
+    <style>
+
+        #alert{
+            z-index: 1051;
+        }
+
+        label{
+            font-weight: bold;
+        }
+
+        input {
+           width: 100%;
+           height: 45px;
+           padding-left: 10px;
+           outline: none;
+           border: 1px solid;
+
+        }
+
+        input:focus {
+        border: 2px solid #d19697;
+    }
+    ul{
+        display:none;
+    }
+
+
+    </style>
+
+
+</head>
+
+
+<body>
+{% if form.errors %}
+{% for field in form %}
+    {% for error in field.errors %}
+<div class="alert alert-info alert-dismissible fade show mb-0" role="alert"
+    style="position: fixed; top: 0; width: 100%;" id="alert">
+    {{ error|escape }}
+</div>
+    {% endfor %}
+{% endfor %}
+{% for error in form.non_field_errors %}
+<div class="alert alert-info alert-dismissible fade show mb-0" role="alert"
+    style="position: fixed; top: 0; width: 100%;" id="alert">
+    {{ error|escape }}
+</div>
+{% endfor %}
+{% endif %}
+
+<script type="text/javascript">
+setTimeout (function () {
+    $('#alert').alert('close')
+}, 3000);
+
+</script>
+
+    <div class="container-fluid">
+        <div class="row bg-secondary py-2 px-xl-5">
+            <div class="col-lg-6 d-none d-lg-block">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark" href="">FAQs</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Help</a>
+                    <span class="text-muted px-2">|</span>
+                    <a class="text-dark" href="">Support</a>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-dark px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-dark pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+<script>
+    window.addEventListener('load', loader)
+    function loader() {
+        let input = document.querySelector("input");
+        input.className += "input";
+    }
+</script>
+
+</html>

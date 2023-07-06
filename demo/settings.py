@@ -2,10 +2,10 @@ import os
 
 ENVIRONMENT = os.getenv('ENVIRONMENT', 'development')
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-DEBUG = True
+DEBUG = False
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '-05sgp9!deq=q1nltm@^^2cc+v29i(tyybv3v2t77qi66czazj'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['eshooperwine.pythonanywhere.com']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -93,9 +93,8 @@ AUTHENTICATION_BACKENDS = [
 SITE_ID = 1
 
 ACCOUNT_FORMS = {
-    'login': 'core.forms.CustomLoginForm',
-    'signup': 'core.forms.CustomSignupForm'
+    'login': 'core.forms.CustomLoginForm'
 }
 
 ACCOUNT_LOGOUT_ON_GET = True
-ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
+LOGIN_REDIRECT_URL = '/'

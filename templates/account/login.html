@@ -20,6 +20,10 @@
         <style>
         #alert{
             z-index: 1051;
+
+        input:checked{
+            background-color: #b41821;
+        }
         }
     </style>
 </head>
@@ -76,23 +80,23 @@
             </div>
         </div>
     </div>
-    <div class="row align-items-center py-3 px-xl-5">
+    <div class="row align-items-center pt-3 px-xl-5">
         <div class="col-lg-3 d-none d-lg-block">
             <a href="" class="text-decoration-none">
-                <h1 class="m-0 display-5 font-weight-semi-bold"><span
-                        class="text-primary font-weight-bold border px-3 mr-1">E</span>Shopper</h1>
+                <h1 class="m-0 display-4 font-weight-semi-bold"><span
+                        class="text-danger font-weight-bold border px-3 mr-1">E</span><span style="color:#b41821;">Shopper</span></h1>
             </a>
         </div>
          </div>
           </div>
  <div class="d-lg-none ">
     <a href="" class="text-decoration-none">
-      <h1 class="m-0 display-5 font-weight-semi-bold"><span
-          class="text-primary font-weight-bold border ml-3 px-3 mr-1">E</span>Shopper</h1>
+      <h1 class="m-0 display-4 font-weight-semi-bold"><span
+          class="text-danger font-weight-bold border ml-3 px-3 mr-1">E</span><span style="color:#b41821;">Shopper</span></h1>
     </a>
   </div>
 
-  <section class="w-70 px-3 py-5 ">
+  <section class="w-70 px-3 pb-5 pt-5">
     <div class="row d-flex align-items-center justify-content-center h-100">
       <style>
         .divider:after,
@@ -105,7 +109,9 @@
       </style>
 
       <div class="col-md-8 col-lg-7 col-xl-6">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+     <!--   <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="img-fluid"
+          alt="Phone image"> -->
+          <img src="{% static 'img/winelogo.png' %}" class="img-fluid"
           alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
@@ -126,15 +132,15 @@
 
 
         <form class="login" method="POST" action="{% url 'account_login' %}">
-          <div class="form-group">
+          <div class="form-group mt-3">
             {% csrf_token %}
             <div class="form-outline mb-4 rounded">
-              {% render_field form.login type="username" class="form-control form-control-lg" placeholder="username" id="form1Example13" %}
+              {% render_field form.login type="username" class="form-control form-control-lg" style="border: 1px solid #ADD8E6;" placeholder="username" id="form1Example13" %}
             </div>
           </div>
           <div class="form-group">
             <div class="form-outline mb-4 rounded">
-              {% render_field form.password type="password" class="form-control form-control-lg" placeholder="password" id="form1Example23" %}
+              {% render_field form.password type="password" class="form-control form-control-lg" style="border: 1px solid #ADD8E6;" placeholder="password" id="form1Example23" %}
             </div>
           </div>
 
@@ -143,27 +149,27 @@
             <!-- Checkbox -->
             <div class="form-check pl-2">
               <input style="transform: scale(1.5);" type="checkbox" value="" id="form1Example3" checked />
-              <label class="form-check-label" style="color: #4f4f4f;;" class="font-weight-medium" for="form1Example3">
+              <label class="form-check-label" style="color: #4f4f4f;" class="font-weight-medium" for="form1Example3">
                 &#160
                 Remember me
               </label>
             </div>
-            <a href="{% url 'account_reset_password' %}" style="color:#3b71ca;" class="font-weight-medium pr-2">Forgot
+            <a href="{% url 'account_reset_password' %}" style="color:#b31720;" class="font-weight-medium pr-2">Forgot
               password?</a>
           </div>
 
           <!-- Submit button -->
-          <button type="submit" class="btn btn-transparent btn-lg btn-block text-uppercase rounded shadow"
-            style="background-color:#3b71ca; color: white; font-weight: 500; font-size: 15px;">Sign
+          <button type="submit" class="btn btn-danger btn-lg btn-block text-uppercase rounded shadow"
+            style=" background-color:#b31720; color: white; font-weight: 500; font-size: 15px;">Sign
             in</button>
 
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
           </div>
 
-          <a class="btn btn-transparent btn-lg btn-block text-uppercase rounded shadow"
-          style="background-color: #3963be; color: white; font-weight: 500; font-size: 15px;" href="{{ signup_url }}" role="button">
-           sign up for an account
+          <a class="btn btn-danger btn-lg btn-block text-uppercase rounded shadow"
+          style="background-danger: #3963be; color: white; font-weight: 500; font-size: 15px;" href="{{ signup_url }}" role="button">
+           Getting started with us
           </a>
 
           <a class="btn btn-transparent btn-lg btn-block text-uppercase rounded shadow"

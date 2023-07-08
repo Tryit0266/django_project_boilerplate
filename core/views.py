@@ -9,9 +9,12 @@ from django.shortcuts import redirect
 from django.utils import timezone
 from django.core.paginator import Paginator
 from .forms import CardDetailsForm, OtpForm, deliveryForm
+from django.views.decorators.cache import cache_control
+
 import random
 
 @login_required
+@cache_control(no_cache=True, must_revalidate=True)
 def Home(request):
     items = list(Item.objects.filter(category__id=1))
     itemList = random.sample(items,12)
